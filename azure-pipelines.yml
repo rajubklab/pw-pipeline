@@ -24,7 +24,7 @@ steps:
   - script: npm install
     displayName: "Install dependencies"
 
-  - script: npx playwright install --chromium
+  - script: npx playwright install chromium
     displayName: "Install Playwright browsers."
 
   - script: npm run e2e
