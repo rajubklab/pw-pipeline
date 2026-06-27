@@ -10,10 +10,16 @@ variables:
   NODE_VERSION: "24.x"
 
 steps:
-  - task: NodeTool@1
+  - task: NodeTool@0
     inputs:
       versionSpec: "$(NODE_VERSION)"
     displayName: "Use Node.js $(NODE_VERSION)"
+
+  - script: |
+      node -v
+      npm -v
+      npx -v
+    displayName: Verify Node
 
   - script: npm install
     displayName: "Install dependencies"
