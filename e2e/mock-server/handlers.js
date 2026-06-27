@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw";
 import { userMock } from "../mocks/user.ts";
 
 export const handlers = [
-  http.get("https://jsonplaceholder.typicode.com/todos/1", (req, res, ctx) => {
+  http.get("https://jsonplaceholder.typicode.com/todos/1", () => {
     return HttpResponse.json({
       userId: 1,
       id: 1,
@@ -10,7 +10,7 @@ export const handlers = [
       completed: false,
     });
   }),
-  http.get("https://jsonplaceholder.typicode.com/users/1", (req, res, ctx) => {
+  http.get("https://jsonplaceholder.typicode.com/users/1", () => {
     return HttpResponse.json(userMock);
   }),
 ];
