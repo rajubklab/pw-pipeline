@@ -10,23 +10,18 @@ variables:
   NODE_VERSION: "24"
 
 steps:
-  - task: NodeTool@0
+  - task: NodeTool@1
     inputs:
       versionSpec: "$(NODE_VERSION)"
     displayName: "Use Node.js $(NODE_VERSION)"
 
-  - script: |
-      corepack enable
-      corepack prepare pnpm@latest --activate
-    displayName: "Enable Corepack and install pnpm"
-
-  - script: pnpm install
+  - script: npm install
     displayName: "Install dependencies"
 
-  - script: pnpm exec playwright install
+  - script: npm exec playwright install
     displayName: "Install Playwright browsers"
 
-  - script: pnpm e2e
+  - script: npm run e2e
     displayName: "Run Playwright E2E tests"
     env:
       CI: "true"
