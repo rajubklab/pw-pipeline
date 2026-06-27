@@ -19,7 +19,7 @@ steps:
     displayName: "Install dependencies"
 
   - script: npm exec playwright install
-    displayName: "Install Playwright browsers"
+    displayName: "Install Playwright browsers."
 
   - script: npm run e2e
     displayName: "Run Playwright E2E tests"
